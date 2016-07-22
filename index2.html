@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ディープリンクテスト</title>
+
+
+  <!-- twitter card -->
+  <meta name="twitter:card" content="app">
+  <meta name="twitter:description" content="ABCアプリ">
+  <meta name="twitter:app:country" content="JP">
+  <meta name="twitter:app:name:iphone" content="ABC App">
+  <meta name="twitter:app:id:iphone" content="930815049">
+  <meta name="twitter:app:url:iphone" content="jp.co.asahi.PortalApps://">
+  <meta name="twitter:app:name:ipad" content="ABC App">
+  <meta name="twitter:app:id:ipad" content="930815049">
+  <meta name="twitter:app:url:ipad" content="jp.co.asahi.PortalApps://">
+  <meta name="twitter:app:name:googleplay" content="ABC App">
+  <meta name="twitter:app:id:googleplay" content="jp.co.asahi.abcapp">
+  <!--  <meta name="twitter:app:url:googleplay" content="http://example.com/action/5149e249222f9e600a7540ef">-->
+
+  <!-- facebook applinks -->
+  <meta property="al:ios:url" content="jp.co.asahi.PortalApps://" />
+  <meta property="al:ios:app_store_id" content="930815049" />
+  <meta property="al:ios:app_name" content="ABC App" />
+  <meta property="al:android:url" content="jp.co.asahi.PortalApps://" />
+  <meta property="al:android:app_name" content="ABC App" />
+  <meta property="al:android:package" content="jp.co.asahi.abcapp" />
+  <!--
+<meta property="al:web:url"
+content="http://applinks.org/documentation" />
+-->
+  
+  <script>
+    var _ua = (function(u){
+      return {
+        Tablet:(u.indexOf("windows") != -1 && u.indexOf("touch") != -1 && u.indexOf("tablet pc") == -1) 
+        || u.indexOf("ipad") != -1
+        || (u.indexOf("android") != -1 && u.indexOf("mobile") == -1)
+        || (u.indexOf("firefox") != -1 && u.indexOf("tablet") != -1)
+        || u.indexOf("kindle") != -1
+        || u.indexOf("silk") != -1
+        || u.indexOf("playbook") != -1,
+        Mobile:(u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
+        || u.indexOf("iphone") != -1
+        || u.indexOf("ipod") != -1
+        || (u.indexOf("android") != -1 && u.indexOf("mobile") != -1)
+        || (u.indexOf("firefox") != -1 && u.indexOf("mobile") != -1)
+        || u.indexOf("blackberry") != -1
+      }
+    })(window.navigator.userAgent.toLowerCase());
+
+
+    if(_ua.Tablet){   //タブレット端末の時
+      alert('タブレット')
+    }else{
+      if (navigator.userAgent.search('iPhone') !== -1) {
+        
+        window.location.href="jp.co.asahi.PortalApps://";
+        
+      }else if(navigator.userAgent.search('android') !== -1){
+        
+      }
+    }
+    
+  </script>
+  
+  </head>
+<body>
+  ディープリンクテスト
+</body>
+</html>
