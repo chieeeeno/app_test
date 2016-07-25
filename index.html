@@ -35,6 +35,7 @@
 content="http://applinks.org/documentation" />
 -->
   
+<!--
   <script>
     var _ua = (function(u){
       return {
@@ -68,12 +69,51 @@ content="http://applinks.org/documentation" />
     }
     
   </script>
+-->
+  
+  
+  <script>
+    // アプリを開く。アプリがインストールされていなければサイトを開く。
+    function launchApp() {
+      var IOS_SCHEME = 'jp.co.asahi.PortalApps';
+      var IOS_STORE = 'https://itunes.apple.com/jp/app/abcapuri/id930815049?mt=8';
+      var ANDROID_SCHEME = 'AndroidのURLスキームをここに入れるべし！';
+      var ANDROID_PACKAGE = 'jp.co.asahi.abcapp';
+      var PC_SITE = 'http://www.asahi.co.jp/smp/abcapp/'
+
+      var userAgent = navigator.userAgent.toLowerCase();
+      // iPhone端末ならアプリを開くかApp Storeを開く。
+      if (userAgent.search(/iphone|ipad|ipod/) > -1) {
+        launch_frame.location.href = IOS_SCHEME + '://';
+        setTimeout(function() {
+          location.href = IOS_STORE;
+        }, 500);
+      }
+      // Android端末ならアプリを開くかGoogle Playを開く。
+      else if (userAgent.search(/android/) > -1) {
+        document.location = 'intent://#Intent;scheme=' + ANDROID_SCHEME
+          + ';package=' + ANDROID_PACKAGE + ';end';
+      }
+      // その他・不明・PCなどの場合はサイトを開く。
+      else {
+        document.location = PC_SITE;
+      }
+    }
+
+    // ページ読み込み時に実行
+//    window.onload = function() {
+//      launchApp();
+//    }
+  </script>
+  
   
   </head>
 <body>
   ディープリンクテスト<br>
   <br>
-  <a href="jp.co.asahi.PortalApps://">アプリを開(ios)く</a><br>
-  <a href="jp.co.asahi.PortalApps://">アプリを開(android)く</a>
+  <a href="jp.co.asahi.PortalApps://">アプリを開く(ios)</a><br>
+  <a href="jp.co.asahi.PortalApps://">アプリを開く(android)</a><br>
+  <br>
+  <a href="#" onclick="launchApp()">アプリを開く</a><br>
 </body>
 </html>
